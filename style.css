@@ -94,6 +94,7 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     outline: none;
-    background-color: antiquewhite;
+    background-color: rgb(15, 122, 185);
     border-radius: 4px;
+    border: none;
 }
