@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@1,100&family=Rubik+Bubbles&family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: 1em rubic -bubbles, cursive;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgba(127, 234, 255, 0.745);
+}
+
+.container {
+    width: 850px;
+    display: flex;
+    background-color: aliceblue;
+    padding: 60px 40px;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.hangman-box img {
+    max-width: 270px;
+    margin-bottom: 10px;
+}
+
+.hangman-box {
+    font: 1.5rem rubic-bubbles, cursive;
+    font-weight: 600;
+    /* padding: 20px; */
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.word-display {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.word-display .letter {
+    font: 1em barlow, sans-serif;
+    width: 28px;
+    border-bottom: 3px solid black;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.word-display .letter.guessed {
+    border-color: transparent;
+    margin: -40px 0 45px;
+
+}
+
+.game-box h4 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.game-box h4 b {
+    font-weight: 600;
+}
+
+.game-box .guess-text b {
+    color: #de3e3e;
+}
+
+.game-box .keyboard {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.keyboard button {
+    width: calc(100% / 9 - 5px);
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    background-color: antiquewhite;
+    border-radius: 4px;
+}
