@@ -1,6 +1,9 @@
+const hangmanImage = document.querySelector('.hangman-box img');
 const keyboardDiv = document.querySelector('.keyboard');
 const wordDisplay = document.querySelector('.word-display');
-
+const life_display = document.querySelector('.life-display b');
+let life = 0;
+let max_life = 6;
 let curWord = '';
 //getting Random word from WordList
 function getRandomWord() {
@@ -15,7 +18,7 @@ function getRandomWord() {
 function checkLetter(button, clickedLetter) {
 
     if (curWord.includes(clickedLetter)) {
-        console.log(clickedLetter + '  Found');
+        //Show all the currect letter in the Display Word
         [...curWord].forEach((letter, index) => {
             if (letter === clickedLetter) {
                 wordDisplay.children[index].innerText = letter;
@@ -23,18 +26,28 @@ function checkLetter(button, clickedLetter) {
             }
         })
     } else {
-        console.log(clickedLetter + '  Not Found')
+        //When Wronng Letter is clicked decrease life and update heart display     ;
+        life++;
+        hangmanImage.src = `images/hangman-${life}.svg`;
+    }
+    life_display.innerText = `${life}/${max_life}`;
+    //Disable the keyboard key if pressed 
+    button.disabled = true;
+    //Check if all the letter is guessed
+    if (life >= 6) {
+        console.log("Game Lost !!!!!");
+    }
+    if (wordDisplay.innerText === curWord) {
+        console.log("Game Won !!!!!");
     }
 }
 
-// checkLetter(curWord);
 getRandomWord()
-
 
 //creating Keyboard Buttons 
 for (let i = 97; i < 123; i++) {
     const button = document.createElement('button');
     button.innerText = String.fromCharCode(i).toUpperCase();
-    button.addEventListener('click', (e) => checkLetter(e.target, String.fromCharCode(i)));
+    button.addEventListener('click', e => checkLetter(e.target, String.fromCharCode(i)));
     keyboardDiv.appendChild(button);
 } 
